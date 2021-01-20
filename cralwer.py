@@ -20,8 +20,8 @@ driver = webdriver.Chrome(chrome_driver, options=options)
 driver.get(url)
 time.sleep(1)
 
-s_id = "orool3737"
-s_pwd = "159632qwe!"
+s_id = "os.environ.get('my_id')"
+s_pwd = "os.environ.get('my_password')"
 
 login_id = driver.find_element_by_name('user_id')
 login_id.send_keys(s_id)
