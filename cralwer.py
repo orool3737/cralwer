@@ -56,14 +56,11 @@ if issue_body != '' and repo_name == repo.name:
     res = repo.create_issue(title=issue_title, body=latest)
     print(res)
 '''
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
-    f_write.write(latest)
-'''
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(BASE_DIR, 'news.json'), 'w+',encoding='utf-8') as json_file:
     json.dump(latest, json_file, ensure_ascii = False)
-    '''
+
 '''
 with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
     before = f_read.readline()
