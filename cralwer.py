@@ -68,8 +68,8 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
     f_write.write(latest)
 '''
 if before != latest:
-        bot.sendMessage(chat_id=chat_id, text='새 글이 올라왔어요!') 
-    else:
-        bot.sendMessage(chat_id=chat_id, text='새 글이 없어요 ㅠㅠ')
+   bot.sendMessage(chat_id=chat_id, text='새 글이 올라왔어요!')
+else:
+   bot.sendMessage(chat_id=chat_id, text='새 글이 없어요 ㅠㅠ')
 
 before = latest
