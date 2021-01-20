@@ -9,7 +9,7 @@ decorator==4.4.2
 idna==2.10
 pycparser==2.20
 python-telegram-bot==13.1
-PyGithub==1.51
+PyGithub==1.54.1
 pytz==2020.5
 requests==2.25.1
 selenium==3.141.0
