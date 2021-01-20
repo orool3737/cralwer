@@ -66,3 +66,4 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
     f_read.close()
 with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
     f_write.write(latest)
+before = latest
