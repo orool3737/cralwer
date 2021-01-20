@@ -55,7 +55,7 @@ if issue_body != '' and repo_name == repo.name:
     res = repo.create_issue(title=issue_title, body=latest)
     print(res)
 '''
-
+'''
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
     before = f_read.readline()
@@ -66,7 +66,7 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
     f_read.close()
 with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
     f_write.write(latest)
-
+'''
 with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
     before1 = f_read.readline()
     print(before1)
