@@ -31,10 +31,14 @@ jobs:
         python cralwer.py
     - name: Commits 1
       run: |
+        git config --system user.email "you@example.com"
+        git config --system user.name "Your Name"
         git rm 'news.json'
         git commit -m "Auto - romove with Crawling" # 커밋 메세지
     - name: Commits 2
       run: |
+        git config --system user.email "you@example.com"
+        git config --system user.name "Your Name"
         git add news.json
         git commit -m "Auto - Update data with Crawling" # 커밋 메세지
     - name: Push
