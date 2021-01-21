@@ -31,6 +31,8 @@ jobs:
       run: |
         git fetch --all
         git reset --hard origin/main
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
         git add news.json
         git commit -m "Auto - romove with Crawling" # 커밋 메세지
     - name: Push
