@@ -31,8 +31,8 @@ jobs:
       run: |
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
-        git add --update
-        git commit -m "Auto - romove with Crawling" # 커밋 메세지
+        git add -A news.json
+        git commit --amend
     - name: Push
       uses: ad-m/github-push-action@v0.6.0
       with:
