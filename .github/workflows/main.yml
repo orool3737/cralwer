@@ -33,7 +33,7 @@ jobs:
       run: |
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
-        git rm 'news.json'
+        git rm news.json
         git commit -m "Auto - romove with Crawling" # 커밋 메세지
     - name: Commits 2
       run: |
