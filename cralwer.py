@@ -63,7 +63,7 @@ with open(os.path.join(BASE_DIR, 'news.json'), 'r+',encoding='utf-8') as json_fi
     if before != latest:
         bot.sendMessage(chat_id=chat_id, text='새 글이 올라왔어요!') 
     else:
-        bot.sendMessage(chat_id=chat_id, text='새 글이 없어요 ㅠㅠ')
+        print('새 글이 없어요 ㅠㅠ')
     
 with open(os.path.join(BASE_DIR, 'news.json'), 'w+',encoding='utf-8') as json_file:
     json.dump(latest, json_file, ensure_ascii = False)
