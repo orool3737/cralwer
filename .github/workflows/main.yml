@@ -29,10 +29,8 @@ jobs:
         python cralwer.py
     - name: Commits
       run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
-        git add -A news.json
-        git commit --amend
+        git fetch --all
+        git reset --hard origin/main
     - name: Push
       uses: ad-m/github-push-action@v0.6.0
       with:
