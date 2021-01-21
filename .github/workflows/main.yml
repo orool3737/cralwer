@@ -1,8 +1,9 @@
 name: cralwer
-
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "*/3 * * * *"
   
 jobs:
   run:
