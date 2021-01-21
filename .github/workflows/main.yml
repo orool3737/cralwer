@@ -33,7 +33,7 @@ jobs:
       run: |
         git config --local user.email "your@email"
         git config --local user.name "Auto_Crawler_Name" # 커밋에 포함될 이름
-        git rm news.json
+        git rm 'news.json'
         git add news.json
         git commit -m "Auto - Update data with Crawling" # 커밋 메세지
     - name: Push
