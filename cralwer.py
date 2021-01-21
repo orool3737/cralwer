@@ -56,11 +56,18 @@ if issue_body != '' and repo_name == repo.name:
     res = repo.create_issue(title=issue_title, body=latest)
     print(res)
 '''
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(BASE_DIR, 'news.json'), 'w+',encoding='utf-8') as json_file:
+    before = json.load(json_file)
+    if before != latest:
+        bot.sendMessage(chat_id=chat_id, text='새 글이 올라왔어요!') 
+    else:
+        bot.sendMessage(chat_id=chat_id, text='새 글이 없어요 ㅠㅠ')
+    f_read.close()
+    
 with open(os.path.join(BASE_DIR, 'news.json'), 'w+',encoding='utf-8') as json_file:
     json.dump(latest, json_file, ensure_ascii = False)
-
 '''
 with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
     before = f_read.readline()
@@ -71,8 +78,4 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
     f_read.close()
 with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
     f_write.write(latest)
-
-with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
-    before1 = f_read.readline()
-    print(before1)
 '''
