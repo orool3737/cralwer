@@ -29,11 +29,11 @@ jobs:
         my_password: ${{ secrets.PASSWORD }}
       run: |
         python cralwer.py
-    - name: Commits 1
+    - name: Commits
       run: |
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
-        git rm news.json
+        git add news.json
         git commit -m "Auto - romove with Crawling" # 커밋 메세지
     - name: Push
       uses: ad-m/github-push-action@v0.6.0
