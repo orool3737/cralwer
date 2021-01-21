@@ -58,7 +58,7 @@ if issue_body != '' and repo_name == repo.name:
 '''
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-with open(os.path.join(BASE_DIR, 'news.json'), 'w+',encoding='utf-8') as json_file:
+with open(os.path.join(BASE_DIR, 'news.json'), 'r+',encoding='utf-8') as json_file:
     before = json.load(json_file)
     if before != latest:
         bot.sendMessage(chat_id=chat_id, text='새 글이 올라왔어요!') 
