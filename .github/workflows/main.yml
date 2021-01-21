@@ -32,9 +32,9 @@ jobs:
         git fetch --all
         git reset --hard origin/main
         git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
+        git config --global user.name "Your Name"
         git add news.json
-        git commit -m "Auto - romove with Crawling" # 커밋 메세지
+        git commit -m "Auto - romove with Crawling"
     - name: Push
       uses: ad-m/github-push-action@v0.6.0
       with:
