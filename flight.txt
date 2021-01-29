@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import datetime
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 import telegram
@@ -39,7 +41,7 @@ driver.find_elements_by_link_text("30")[0].click()
 #항공권 검색 클릭
 driver.find_element_by_link_text("항공권 검색").click()
 
-WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//*[@id='content']/div[2]/div/div[4]/ul/li[1]")))
+WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "//*[@id='content']/div[2]/div/div[4]/ul/li[1]")))
 
 # 스크롤 가장 아래로 내리기
 interval = 2
@@ -57,7 +59,7 @@ while True:
 print("프린트 완료")
 
 req = driver.page_source
-soup=BeautifulSoup(req, 'html.parser')
+soup = BeautifulSoup(req, 'html.parser')
 company = soup.select("span.h_tit_result.ng-binding")
 department_time = soup.select("dd.txt_time.ng-binding")
 department = soup.select("dd.txt_code.ng-binding")
@@ -65,13 +67,20 @@ arrival = soup.select("dd.txt_code.ng-binding")
 arrival_time = soup.select("dd.txt_time.ng-binding")
 price = soup.select("span.txt_pay.ng-binding")
 
+print(company[0].text, department[0].text, department_time[0].text, arrival[0].text, arrival_time[0].text, price[0].text)
+print(company[1].text, department[1].text, department_time[1].text, arrival[1].text, arrival_time[1].text, price[1].text)
+
+dateformat = "%H:%M"
+
 i=0
-for c_list in soup:
+while soup:
     try:
         print(company[i].text, department[i].text, department_time[i].text, arrival[i].text, arrival_time[i].text, price[i].text)
         i = i + 1
+        minuet = datetime.datetime.strptime(department_time[i], dateformat)
+        print(minuet.hour)
     except IndexError:
-        pass
+        break
 
 '''
 elem = WebDriverWait(driver, 40).until(EC.presence_of_element_located((By.XPATH, "//*[@id='content']/div[2]/div/div[4]/ul")))
@@ -123,21 +132,3 @@ with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
 with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
     f_write.write(latest)
 '''
-
-import datetime
-
-now = datetime.datetime.today()
-
-delta = 4 - now.weekday()
-if delta <= 0:
-    delta = 11 - now.weekday()
-
-first_friday = now + datetime.timedelta(days=delta)
-second_friday = first_friday + datetime.timedelta(days=7)
-third_friday = second_friday + datetime.timedelta(days=7)
-fourth_friday = third_friday + datetime.timedelta(days=7)
-
-print(first_friday)
-print(second_friday)
-print(third_friday)
-print(fourth_friday)
