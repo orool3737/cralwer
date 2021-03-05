@@ -44,6 +44,7 @@ latest = information_list[0].text
 telegram_token_g = os.environ.get('telegram_token')
 
 bot = telegram.Bot(token=telegram_token_g)
+print(telegram_token_g)
 chat_id = 1491027495 #bot.getUpdates()[-1].message.chat.id
 '''
 github_token_g = os.environ.get('github_token')
