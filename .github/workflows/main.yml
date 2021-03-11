@@ -28,7 +28,7 @@ jobs:
         my_password: ${{ secrets.PASSWORD }}
       run: |
         python cralwer.py
-   - name: Commits
+    - name: Commits
       run: |
         git config --local user.email "your@email"
         git config --local user.name "Auto_Crawler_Name" # 커밋에 포함될 이름
