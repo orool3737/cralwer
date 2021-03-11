@@ -40,6 +40,7 @@ req = driver.page_source
 soup=BeautifulSoup(req, 'html.parser')
 information_list = soup.select("span.date")
 latest = information_list[0].text
+print(latest)
 
 telegram_token_g = os.environ.get('telegram_token')
 
