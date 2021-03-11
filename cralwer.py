@@ -6,7 +6,6 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import telegram
-from github import Github
 import json
 
 url = "http://www.slrclub.com/"
@@ -42,21 +41,9 @@ information_list = soup.select("span.date")
 latest = information_list[0].text
 print(latest)
 
-telegram_token_g = os.environ.get('telegram_token')
-
-bot = telegram.Bot(token=telegram_token_g)
+bot = telegram.Bot(token=os.environ.get('telegram_token'))
 chat_id = 1491027495 #bot.getUpdates()[-1].message.chat.id
-'''
-github_token_g = os.environ.get('github_token')
-repo_name = 'GG'
-repo = Github(github_token_g).get_user().get_repo(repo_name)
-res = repo.create_issue(title=issue_title, body=latest)
-'''
-'''
-if issue_body != '' and repo_name == repo.name:
-    res = repo.create_issue(title=issue_title, body=latest)
-    print(res)
-'''
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 with open(os.path.join(BASE_DIR, 'news.json'), 'r+',encoding='utf-8') as json_file:
@@ -68,14 +55,3 @@ with open(os.path.join(BASE_DIR, 'news.json'), 'r+',encoding='utf-8') as json_fi
     
 with open(os.path.join(BASE_DIR, 'news.json'), 'w+',encoding='utf-8') as json_file:
     json.dump(latest, json_file, ensure_ascii = False)
-'''
-with open(os.path.join(BASE_DIR, 'latest.txt'), 'r+') as f_read:
-    before = f_read.readline()
-    if before != latest:
-        bot.sendMessage(chat_id=chat_id, text='새 글이 올라왔어요!') 
-    else:
-        bot.sendMessage(chat_id=chat_id, text='새 글이 없어요 ㅠㅠ')
-    f_read.close()
-with open(os.path.join(BASE_DIR, 'latest.txt'), 'w+') as f_write:
-    f_write.write(latest)
-'''
