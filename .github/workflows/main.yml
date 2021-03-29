@@ -21,7 +21,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt        
-    - name: test
+    - name: test1
       env:
         telegram_token: ${{ secrets.TELEGRAMTOKEN_SLR }}
         my_id: ${{ secrets.ID }}
